@@ -27,7 +27,7 @@ public class ProjectConfiguration {
         Configuration.browserSize = webDriverConfig.browserSize();
         Configuration.timeout = 30000;
         if (webDriverConfig.isRemote()) {
-            Configuration.remote = String.format("https://%s:%s@%s",
+            Configuration.remote = String.format("https://%s:%s@%s/wd/hub",
                     authConfig.selenoidUser(), authConfig.selenoidPassword(), webDriverConfig.remoteUrl());
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
