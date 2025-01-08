@@ -70,7 +70,7 @@ public class CatalogPage {
 
     @Step("Проверить, что появилась кнопка фильтра с текстом \"Цена: от {0} до {1}\"")
     private void checkManualRangePriceButtonFilterIsVisible(int lowerBound, int upperBound) {
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+        NumberFormat numberFormat = NumberFormat.getInstance(Locale.forLanguageTag("ru"));
         String formattedLowerBound = numberFormat.format(lowerBound);
         String formattedUpperBound = numberFormat.format(upperBound);
         String filterText;
