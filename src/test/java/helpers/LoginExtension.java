@@ -1,6 +1,7 @@
 package helpers;
 
 import api.authorization.AuthorizationApi;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class LoginExtension implements BeforeEachCallback {
 
+    @Step("Добавить token в браузер")
     @Override
     public void beforeEach(ExtensionContext extensionContext) throws Exception {
         Response authResponse = AuthorizationApi.getAuthorizationResponse();
