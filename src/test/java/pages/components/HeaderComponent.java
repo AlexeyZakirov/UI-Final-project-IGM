@@ -5,8 +5,6 @@ import io.qameta.allure.Step;
 import lombok.Getter;
 import pages.FavoritesPage;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -24,9 +22,8 @@ public class HeaderComponent {
             searchInput = searchComponent.getSearchInput(),
             loginElement = $("#__HEADER_CONTENT__").$(byText("Войти"));
 
-    public HeaderComponent checkElementIsVisibleInHeader(SelenideElement element) {
+    public void checkElementIsVisibleInHeader(SelenideElement element) {
         element.shouldBe(visible);
-        return this;
     }
 
     @Step("Перейти в раздел Желаемое")

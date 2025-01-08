@@ -1,9 +1,7 @@
-import helpers.WithLogin;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
