@@ -39,6 +39,7 @@ public class MainPageTests extends TestBase {
                 });
 
         mainPage.switchToPreviousIconTopGamesSlider();
+        mainPage.switchToPreviousIconTopGamesSlider();
         String activeIconNameAfterSwitchToPrevious = mainPage.getActiveIconNameTopGamesSlider();
         String mainGameNameAfterSwitchToPrevious = mainPage.getNameOfActiveGameTopGamesSlider();
     }
