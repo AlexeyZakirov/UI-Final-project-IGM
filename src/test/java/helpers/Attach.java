@@ -39,7 +39,6 @@ public class Attach {
     }
 
     public static URL getVideoUrl(){
-        AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
         WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
         String videoUrl =String.format("https://%s/video/%s.mp4", webDriverConfig.remoteUrl(), sessionId());
         try {
