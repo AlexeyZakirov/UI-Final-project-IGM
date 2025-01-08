@@ -42,6 +42,20 @@ public class MainPageTests extends TestBase {
         mainPage.switchToPreviousIconTopGamesSlider();
         String activeIconNameAfterSwitchToPrevious = mainPage.getActiveIconNameTopGamesSlider();
         String mainGameNameAfterSwitchToPrevious = mainPage.getNameOfActiveGameTopGamesSlider();
+
+        step("Проверить, что значение иконки после переключения вперёд не равно значению иконки после переключения назад",
+                () -> {
+                    assertThat(activeIconNameAfterSwitchToPrevious).isNotEqualTo(activeIconNameAfterSwitchToNext);
+                });
+
+        step("Проверить, что текущее значение иконки равно значению названия игры после переключения назад",
+                () -> {
+                    assertThat(activeIconNameAfterSwitchToPrevious).isEqualTo(mainGameNameAfterSwitchToPrevious);
+                });
+        step("Проверить. что текущее название игры не равно названию игры до переключения назад",
+                () -> {
+                    assertThat(mainGameNameAfterSwitchToPrevious).isNotEqualTo(mainGameNameAfterSwitchToNext);
+                });
     }
 
     @Test
