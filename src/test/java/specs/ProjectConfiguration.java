@@ -6,6 +6,8 @@ import io.restassured.parsing.Parser;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import specs.web.WebDriverConfig;
 
+import java.util.Map;
+
 public class ProjectConfiguration {
     private final WebDriverConfig webDriverConfig;
     private final AuthConfig authConfig;
@@ -30,8 +32,11 @@ public class ProjectConfiguration {
             Configuration.remote = String.format("https://%s:%s@%s/wd/hub",
                     authConfig.selenoidUser(), authConfig.selenoidPassword(), webDriverConfig.remoteUrl());
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            Configuration.browserCapabilities = capabilities;
         }
     }
 }
