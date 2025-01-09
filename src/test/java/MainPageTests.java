@@ -11,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MainPageTests extends TestBase {
     private final MainPage mainPage = new MainPage();
 
-    @DisplayName("Переключение активной игры в слайдере TopGames посредством кнопок")
+    @DisplayName("Переключение активной игры на следующую в слайдере TopGames посредством кнопки 'Следующий слайд'")
     @Test
-    public void switchingActiveIconByButtonTest() {
+    public void switchingActiveIconToNextByButtonTest() {
 
         mainPage.openMainPage();
         String initialActiveIconName = mainPage.getActiveIconNameTopGamesSlider();
@@ -40,15 +40,28 @@ public class MainPageTests extends TestBase {
                 () -> {
                     assertThat(mainGameNameAfterSwitchToNext).isNotEqualTo(initialMainGameName);
                 });
+    }
 
-        mainPage.switchToPreviousIconTopGamesSlider();
+    @DisplayName("Переключение активной игры на предыдущую в слайдере TopGames посредством кнопки 'Предыдущий слайд'")
+    @Test
+    public void switchingActiveIconToPreviousByButtonTest() {
+
+        mainPage.openMainPage();
+        String initialActiveIconName = mainPage.getActiveIconNameTopGamesSlider();
+        String initialMainGameName = mainPage.getNameOfActiveGameTopGamesSlider();
+
+        step("Проверить, что текущее значение иконки равно значению названия игры до переключения на следующую иконку",
+                () -> {
+                    assertThat(initialActiveIconName).isEqualTo(initialMainGameName);
+                });
+
         mainPage.switchToPreviousIconTopGamesSlider();
         String activeIconNameAfterSwitchToPrevious = mainPage.getActiveIconNameTopGamesSlider();
         String mainGameNameAfterSwitchToPrevious = mainPage.getNameOfActiveGameTopGamesSlider();
 
         step("Проверить, что значение иконки после переключения вперёд не равно значению иконки после переключения назад",
                 () -> {
-                    assertThat(activeIconNameAfterSwitchToPrevious).isNotEqualTo(activeIconNameAfterSwitchToNext);
+                    assertThat(activeIconNameAfterSwitchToPrevious).isNotEqualTo(initialActiveIconName);
                 });
 
         step("Проверить, что текущее значение иконки равно значению названия игры после переключения назад",
@@ -57,7 +70,7 @@ public class MainPageTests extends TestBase {
                 });
         step("Проверить. что текущее название игры не равно названию игры до переключения назад",
                 () -> {
-                    assertThat(mainGameNameAfterSwitchToPrevious).isNotEqualTo(mainGameNameAfterSwitchToNext);
+                    assertThat(mainGameNameAfterSwitchToPrevious).isNotEqualTo(initialMainGameName);
                 });
     }
 
