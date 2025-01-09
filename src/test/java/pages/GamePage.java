@@ -11,13 +11,13 @@ public class GamePage {
             mainGamePrice = $(".MainInfo_main-info__price__IHF8u .Price_price__price-text__MpdHL");
 
     @Step("Проверить, что название игры - {0}")
-    public GamePage checkGameName(String gameName){
+    public GamePage checkGameName(String gameName) {
         mainGameName.shouldHave(text(gameName));
         return this;
     }
 
     @Step("Проверить, что цена игры равна = {0}")
-    public GamePage checkGamePrice(String gamePrice){
+    public GamePage checkGamePrice(String gamePrice) {
         mainGamePrice.shouldHave(text(gamePrice));
         return this;
     }

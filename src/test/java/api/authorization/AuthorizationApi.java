@@ -8,9 +8,9 @@ import specs.AuthConfig;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthorizationApi{
+public class AuthorizationApi {
 
-    public static Response getAuthorizationResponse(){
+    public static Response getAuthorizationResponse() {
         AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
         LoginRequestModel login = new LoginRequestModel(authConfig.email(), authConfig.password());
 
@@ -31,7 +31,7 @@ public class AuthorizationApi{
         return null;
     }
 
-    public static String getAccessTokenForApi(){
+    public static String getAccessTokenForApi() {
         return extractAccessTokenForApi(getAuthorizationResponse().getHeader("set-cookie"));
     }
 

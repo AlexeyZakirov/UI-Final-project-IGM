@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RemoveGameRequestModel{
+public class RemoveGameRequestModel {
 
-	@JsonProperty("game_id")
-	private Integer gameId;
+    @JsonProperty("game_id")
+    private Integer gameId;
 }

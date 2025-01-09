@@ -30,14 +30,14 @@ public enum CatalogPriceFilterRadioButtons {
     private final String filterText;
     private final SelenideElement element;
 
-    CatalogPriceFilterRadioButtons(int lowerBound, int upperBound, String filterText, SelenideElement element){
+    CatalogPriceFilterRadioButtons(int lowerBound, int upperBound, String filterText, SelenideElement element) {
         this.lowerBound = lowerBound;
         this.upperBound = upperBound;
         this.filterText = filterText;
         this.element = element;
     }
 
-    public void clickOnButton(){
+    public void clickOnButton() {
         this.element.click();
     }
 }

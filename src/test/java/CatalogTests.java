@@ -38,7 +38,7 @@ public class CatalogTests extends TestBase {
 
     @EnumSource(CatalogPriceFilterRadioButtons.class)
     @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр через радио баттоны")
-    public void setPriceRangeByButtonTest(CatalogPriceFilterRadioButtons radioButton){
+    public void setPriceRangeByButtonTest(CatalogPriceFilterRadioButtons radioButton) {
         catalogPage.openCatalogPage()
                 .clickOnPriceRangeRadioButton(radioButton)
                 .checkPriceIsInRange(radioButton.getLowerBound(), radioButton.getUpperBound());
@@ -47,7 +47,7 @@ public class CatalogTests extends TestBase {
 
     @DisplayName("Сброс всех установленных фильтров вручную")
     @Test
-    public void removeAllFiltersManuallyTest(){
+    public void removeAllFiltersManuallyTest() {
         catalogPage.openCatalogPage()
                 .clickOnRandomRadioButtonPrice()
                 .clickOnRandomCategory()
@@ -59,7 +59,7 @@ public class CatalogTests extends TestBase {
 
     @DisplayName("Сброс всех установленных фильтров через кнопку")
     @Test
-    public void removeAllFiltersByButtonTest(){
+    public void removeAllFiltersByButtonTest() {
         catalogPage.openCatalogPage()
                 .clickOnRandomRadioButtonPrice()
                 .clickOnRandomCategory()
@@ -71,7 +71,7 @@ public class CatalogTests extends TestBase {
 
     @DisplayName("Сброс только выбранного фильтра")
     @Test
-    public void removeSelectedFilterTest(){
+    public void removeSelectedFilterTest() {
         catalogPage.openCatalogPage()
                 .clickOnRandomRadioButtonPrice()
                 .clickOnRandomCategory()
@@ -83,7 +83,7 @@ public class CatalogTests extends TestBase {
 
     @DisplayName("Добавить игру в раздел 'Желаемое', будучи не авторизованным")
     @Test
-    public void clickLikeGameWhenNotAuthorized(){
+    public void clickLikeGameWhenNotAuthorized() {
         catalogPage.openCatalogPage().addToFavoriteFirstGameInCatalog();
         notificationComponent.checkNotificationText("Авторизуйтесь");
         notificationComponent.checkNotificationText(", чтобы добавлять игры в желаемое");
@@ -92,7 +92,7 @@ public class CatalogTests extends TestBase {
     @DisplayName("Добавить игру в раздел 'Желаемое', будучи авторизованным")
     @Test
     @WithLogin
-    public void clickLikeGameWhenAuthorized(){
+    public void clickLikeGameWhenAuthorized() {
         profileLikedGames.removeGamesFromLikedListProfile();
         catalogPage.openCatalogPage().addToFavoriteFirstGameInCatalog();
         String addedGameName = catalogPage.getFirstCatalogGameName();

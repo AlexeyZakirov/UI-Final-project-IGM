@@ -45,7 +45,7 @@ public class SearchTests extends TestBase {
 
     @DisplayName("Сброс поискового запроса")
     @Test
-    public void resetSearchQueryTest(){
+    public void resetSearchQueryTest() {
         mainPage.openMainPage();
         search.setValueOnSearchInput(randomNegativeQueryText)
                 .resetSearchQuery()

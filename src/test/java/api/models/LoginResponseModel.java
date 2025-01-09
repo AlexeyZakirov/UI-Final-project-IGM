@@ -3,9 +3,9 @@ package api.models;
 import lombok.Data;
 
 @Data
-public class LoginResponseModel{
+public class LoginResponseModel {
 
-	private DataModel data;
+    private DataModel data;
 
-	private String status;
+    private String status;
 }

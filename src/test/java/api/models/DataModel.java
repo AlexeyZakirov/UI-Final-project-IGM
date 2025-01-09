@@ -6,15 +6,15 @@ import lombok.Data;
 @Data
 public class DataModel {
 
-	private String nickname;
+    private String nickname;
 
-	@JsonProperty("last_name")
-	private Object lastName;
+    @JsonProperty("last_name")
+    private Object lastName;
 
-	private Integer id;
+    private Integer id;
 
-	@JsonProperty("first_name")
-	private Object firstName;
+    @JsonProperty("first_name")
+    private Object firstName;
 
-	private String email;
+    private String email;
 }

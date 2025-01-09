@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RemoveGameResponseModel{
+public class RemoveGameResponseModel {
 
-	private Object data;
+    private Object data;
 
-	private String status;
+    private String status;
 }

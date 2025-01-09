@@ -154,30 +154,31 @@ public class CatalogPage {
     }
 
     @Step("Удалить все фильтры через кнопку \"Очистить всё\"")
-    public CatalogPage removeAllFiltersByButton(){
+    public CatalogPage removeAllFiltersByButton() {
         selectedFiltersArea.$(byText("Очистить всё")).click();
         checkFilterListIsEmpty();
         return this;
     }
 
     @Step("Проверить, что фильтры отсутствуют")
-    private void checkFilterListIsEmpty(){
+    private void checkFilterListIsEmpty() {
         assertThat(collectionButtonFilters).isEmpty();
     }
 
     @Step
-    public CatalogPage removeSelectedFilter(String filterText){
+    public CatalogPage removeSelectedFilter(String filterText) {
         selectedFiltersArea.$(byText(filterText)).click();
         checkSelectedFilterIsDisabled(filterText);
         return this;
     }
+
     @Step("Проверить, что фильтр {0} не включен")
-    private void checkSelectedFilterIsDisabled(String filterText){
+    private void checkSelectedFilterIsDisabled(String filterText) {
         selectedFiltersArea.shouldNotHave(text(filterText));
     }
 
     @Step("Добавить первую игру из каталога в список желаемого")
-    public CatalogPage addToFavoriteFirstGameInCatalog(){
+    public CatalogPage addToFavoriteFirstGameInCatalog() {
         cardContainerComponent.getCollectionGameCardPrices().get(0).shouldBe(visible);
         cardContainerComponent.getCollectionGameCardPrices().get(0).hover();
         likeButton.click();
@@ -185,7 +186,7 @@ public class CatalogPage {
     }
 
     @Step("Получить значение первой игры из каталога")
-    public String getFirstCatalogGameName(){
+    public String getFirstCatalogGameName() {
         return cardContainerComponent.getCollectionGameCardsImages().get(0).attr("alt");
     }
 }

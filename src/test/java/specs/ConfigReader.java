@@ -21,7 +21,8 @@ public enum ConfigReader {
     public WebDriverConfig readWebConfig() {
         return webConfig;
     }
-    public AuthConfig readAuthConfig(){
+
+    public AuthConfig readAuthConfig() {
         return authConfig;
     }
 }

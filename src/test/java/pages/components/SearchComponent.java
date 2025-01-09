@@ -45,34 +45,37 @@ public class SearchComponent {
     }
 
     @Step("Проверить, что в поисковой выдаче отображен текст - {0}")
-    public SearchComponent checkResultText(String text){
+    public SearchComponent checkResultText(String text) {
         emptyResultContainer.shouldHave(text(text));
         return this;
     }
 
     @Step("Проверить, что в хэдере поиской выдаче отображено - 'Найдены результаты по запросу: «{0}»'")
-    private void checkSearchResultHeaderText(String queryText){
+    private void checkSearchResultHeaderText(String queryText) {
         String text = String.format("Найдены результаты по запросу: «%s»", queryText);
         searchResultWindowHeader.shouldHave(text(text));
     }
+
     @Step("Сбросить поисковой запрос")
-    public SearchComponent resetSearchQuery(){
+    public SearchComponent resetSearchQuery() {
         resetSearchQueryButton.click();
         checkInputIsEmpty();
         return this;
     }
 
     @Step("Проверить, что модальное окно с результатами поиска отображено")
-    private void checkModalWindowIsVisible(){
+    private void checkModalWindowIsVisible() {
         searchResultWindow.shouldBe(visible);
     }
+
     @Step("Проверить, что модальное окно с результатами поиска не отображено")
-    public SearchComponent checkModalWindowIsNotVisible(){
+    public SearchComponent checkModalWindowIsNotVisible() {
         searchResultWindow.shouldNotBe(visible);
         return this;
     }
+
     @Step("Проверить что поисковый input пустой")
-    private void checkInputIsEmpty(){
+    private void checkInputIsEmpty() {
         searchInput.shouldBe(empty);
     }
 }

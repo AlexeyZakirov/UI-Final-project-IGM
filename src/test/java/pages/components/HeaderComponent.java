@@ -27,7 +27,7 @@ public class HeaderComponent {
     }
 
     @Step("Перейти в раздел Желаемое")
-    public void goToFavoritesPage(){
+    public void goToFavoritesPage() {
         likeButton.click();
         favoritesPage.getFavoritesButton().shouldBe(visible);
     }

@@ -27,7 +27,7 @@ public enum CatalogCategories {
         this.filterText = filterText;
     }
 
-    public void clickOnButton(){
+    public void clickOnButton() {
         this.element.click();
     }
 }

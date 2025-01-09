@@ -22,7 +22,7 @@ public class ProjectConfiguration {
         RestAssured.defaultParser = Parser.JSON;
     }
 
-    public void webConfig(){
+    public void webConfig() {
         Configuration.baseUrl = webDriverConfig.baseUrl();
         Configuration.browser = webDriverConfig.browser().toString();
         Configuration.browserVersion = webDriverConfig.browserVersion();
