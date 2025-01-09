@@ -59,6 +59,7 @@ public class CatalogPage {
         priceInputIn.setValue(lowerBound);
         priceInputOut.setValue(upperBound);
         checkManualRangePriceButtonFilterIsVisible(in, out);
+
         return this;
     }
 

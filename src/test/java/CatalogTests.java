@@ -24,20 +24,22 @@ public class CatalogTests extends TestBase {
     private final ProfileLikedGames profileLikedGames = new ProfileLikedGames();
     private final FavoritesPage favoritesPage = new FavoritesPage();
 
+    @DisplayName("Установка диапазона цены предлагаемых игр вручную")
     @CsvSource(value = {
             "10 , 7599",
             "11 , 7598",
             "0 , 1000000"
     })
-    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр вручную (нижняя граница = {0}, верхняя граница = {1})")
+    @ParameterizedTest(name = "Нижняя граница = {0}, верхняя граница = {1})")
     public void setPriceRangeManuallyTest(int lowerBound, int upperBound) {
         catalogPage.openCatalogPage()
                 .setPriceRange(lowerBound, upperBound)
                 .checkPriceIsInRange(lowerBound, upperBound);
     }
 
+    @DisplayName("Установка диапазона цены предлагаемых игр через радио баттоны")
     @EnumSource(CatalogPriceFilterRadioButtons.class)
-    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр через радио баттоны")
+    @ParameterizedTest(name = "Радио баттон - {0}")
     public void setPriceRangeByButtonTest(CatalogPriceFilterRadioButtons radioButton) {
         catalogPage.openCatalogPage()
                 .clickOnPriceRangeRadioButton(radioButton)
