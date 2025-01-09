@@ -9,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 @DisplayName("Тесты на компонент хэдер")
 @Tag("header")
 public class HeaderTests extends TestBase {
-    HeaderComponent header = new HeaderComponent();
+    private final HeaderComponent header = new HeaderComponent();
 
     @DisplayName("Наличие всех элементов в хэдере")
     @Test

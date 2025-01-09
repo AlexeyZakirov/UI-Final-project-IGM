@@ -21,8 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CatalogPage {
 
-    CardContainerComponent cardContainerComponent = new CardContainerComponent();
-    Faker faker = new Faker();
+    private final CardContainerComponent cardContainerComponent = new CardContainerComponent();
+    private final Faker faker = new Faker();
 
     private final String pathToCatalogPage = "/catalog";
 

@@ -18,7 +18,6 @@ public enum CatalogCategories {
         return filterText;
     }
 
-    //private final SelenideElement categoryBlock = $(".FilterBlock_container__XE8H1").$(byText("Лидеры продаж"))
     private final SelenideElement element;
     private final String filterText;
 

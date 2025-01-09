@@ -18,18 +18,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DisplayName("Тесты на раздел 'Каталог'")
 @Tag("catalog")
 public class CatalogTests extends TestBase {
-    CatalogPage catalogPage = new CatalogPage();
-    NotificationComponent notificationComponent = new NotificationComponent();
-    HeaderComponent headerComponent = new HeaderComponent();
-    ProfileLikedGames profileLikedGames = new ProfileLikedGames();
-    FavoritesPage favoritesPage = new FavoritesPage();
+    private final CatalogPage catalogPage = new CatalogPage();
+    private final NotificationComponent notificationComponent = new NotificationComponent();
+    private final HeaderComponent headerComponent = new HeaderComponent();
+    private final ProfileLikedGames profileLikedGames = new ProfileLikedGames();
+    private final FavoritesPage favoritesPage = new FavoritesPage();
 
     @CsvSource(value = {
             "10 , 7599",
             "11 , 7598",
             "0 , 1000000"
     })
-    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр вручную")
+    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр вручную (нижняя граница = {0}, верхняя граница = {1}")
     public void setPriceRangeManuallyTest(int lowerBound, int upperBound) {
         catalogPage.openCatalogPage()
                 .setPriceRange(lowerBound, upperBound)
