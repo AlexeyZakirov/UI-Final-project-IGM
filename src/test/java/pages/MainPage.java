@@ -8,6 +8,7 @@ import io.qameta.allure.Step;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -34,12 +35,14 @@ public class MainPage {
 
     @Step("Переключить активную иконку на следующую в разделе Top Games через кнопку")
     public MainPage switchToNextIconTopGamesSlider() {
+        previousButtonTopGameSlider.shouldBe(clickable);
         nextButtonTopGamesSlider.click();
         return this;
     }
 
     @Step("Переключить активную иконку на предыдущую в разделе Top Games через кнопку")
     public MainPage switchToPreviousIconTopGamesSlider() {
+        previousButtonTopGameSlider.shouldBe(clickable);
         previousButtonTopGameSlider.click();
         return this;
     }
