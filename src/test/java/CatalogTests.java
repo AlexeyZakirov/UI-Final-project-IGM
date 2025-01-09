@@ -30,7 +30,7 @@ public class CatalogTests extends TestBase {
             "11 , 7598",
             "0 , 1000000"
     })
-    @ParameterizedTest(name = "Нижняя граница = {0}, верхняя граница = {1})")
+    @ParameterizedTest(name = "Нижняя граница = {0}, верхняя граница = {1}")
     public void setPriceRangeManuallyTest(int lowerBound, int upperBound) {
         catalogPage.openCatalogPage()
                 .setPriceRange(lowerBound, upperBound)
