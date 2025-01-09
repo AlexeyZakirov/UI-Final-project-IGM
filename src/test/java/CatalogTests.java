@@ -1,5 +1,6 @@
 import api.likesprofile.ProfileLikedGames;
 import helpers.WithLogin;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,6 +15,7 @@ import pages.data.CatalogPriceFilterRadioButtons;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("Тесты на раздел 'Каталог'")
 @Tag("catalog")
 public class CatalogTests extends TestBase {
     CatalogPage catalogPage = new CatalogPage();
@@ -27,15 +29,15 @@ public class CatalogTests extends TestBase {
             "11 , 7598",
             "0 , 1000000"
     })
-    @ParameterizedTest
-    public void setPriceRangeTest(int lowerBound, int upperBound) {
+    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр вручную")
+    public void setPriceRangeManuallyTest(int lowerBound, int upperBound) {
         catalogPage.openCatalogPage()
                 .setPriceRange(lowerBound, upperBound)
                 .checkPriceIsInRange(lowerBound, upperBound);
     }
 
     @EnumSource(CatalogPriceFilterRadioButtons.class)
-    @ParameterizedTest
+    @ParameterizedTest(name = "Установка диапазона цены предлагаемых игр через радио баттоны")
     public void setPriceRangeByButtonTest(CatalogPriceFilterRadioButtons radioButton){
         catalogPage.openCatalogPage()
                 .clickOnPriceRangeRadioButton(radioButton)
@@ -43,6 +45,7 @@ public class CatalogTests extends TestBase {
 
     }
 
+    @DisplayName("Сброс всех установленных фильтров вручную")
     @Test
     public void removeAllFiltersManuallyTest(){
         catalogPage.openCatalogPage()
@@ -54,6 +57,7 @@ public class CatalogTests extends TestBase {
                 .removeAllFiltersManually();
     }
 
+    @DisplayName("Сброс всех установленных фильтров через кнопку")
     @Test
     public void removeAllFiltersByButtonTest(){
         catalogPage.openCatalogPage()
@@ -65,6 +69,7 @@ public class CatalogTests extends TestBase {
                 .removeAllFiltersByButton();
     }
 
+    @DisplayName("Сброс только выбранного фильтра")
     @Test
     public void removeSelectedFilterTest(){
         catalogPage.openCatalogPage()
@@ -76,6 +81,7 @@ public class CatalogTests extends TestBase {
                 .removeSelectedFilter("Скидки");
     }
 
+    @DisplayName("Добавить игру в раздел 'Желаемое', будучи не авторизованным")
     @Test
     public void clickLikeGameWhenNotAuthorized(){
         catalogPage.openCatalogPage().addToFavoriteFirstGameInCatalog();
@@ -83,6 +89,7 @@ public class CatalogTests extends TestBase {
         notificationComponent.checkNotificationText(", чтобы добавлять игры в желаемое");
     }
 
+    @DisplayName("Добавить игру в раздел 'Желаемое', будучи авторизованным")
     @Test
     @WithLogin
     public void clickLikeGameWhenAuthorized(){

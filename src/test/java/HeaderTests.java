@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.components.HeaderComponent;
@@ -5,10 +6,12 @@ import pages.components.HeaderComponent;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("Тесты на компонент хэдер")
 @Tag("header")
 public class HeaderTests extends TestBase {
     HeaderComponent header = new HeaderComponent();
 
+    @DisplayName("Наличие всех элементов в хэдере")
     @Test
     public void headerShouldHaveAllElementsBeVisibleTest() {
         open("/");

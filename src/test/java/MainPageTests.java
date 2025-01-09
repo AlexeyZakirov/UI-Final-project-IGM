@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
@@ -5,10 +6,12 @@ import pages.MainPage;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@DisplayName("Тесты на главную страницу")
 @Tag("main")
 public class MainPageTests extends TestBase {
     private final MainPage mainPage = new MainPage();
 
+    @DisplayName("Переключение активной игры в слайдере TopGames посредством кнопок")
     @Test
     public void switchingActiveIconByButtonTest() {
 
@@ -58,6 +61,7 @@ public class MainPageTests extends TestBase {
                 });
     }
 
+    @DisplayName("Переключение активной игры в слайдере TopGames посредством рандомного клика на видимую иконку")
     @Test
     public void switchingActiveIconByRandomClickTest() {
         mainPage.openMainPage();
