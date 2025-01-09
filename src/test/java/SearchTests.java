@@ -14,7 +14,7 @@ public class SearchTests extends TestBase {
     private final GamePage gamePage = new GamePage();
     private final Faker faker = new Faker();
 
-    private final String randomNegativeQueryText = faker.letterify("?????") + "123";
+    private final String randomNegativeQueryText = "bgdf" + faker.letterify("?????") + "123";
 
     @DisplayName("Поиск существующей игры с переходом на страницу игры")
     @Test
