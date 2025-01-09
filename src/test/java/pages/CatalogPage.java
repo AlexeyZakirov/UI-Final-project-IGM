@@ -166,7 +166,7 @@ public class CatalogPage {
         assertThat(collectionButtonFilters).isEmpty();
     }
 
-    @Step
+    @Step("Сбросить выбранный фильтр")
     public CatalogPage removeSelectedFilter(String filterText) {
         selectedFiltersArea.$(byText(filterText)).click();
         checkSelectedFilterIsDisabled(filterText);
