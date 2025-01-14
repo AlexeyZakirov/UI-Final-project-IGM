@@ -3,23 +3,21 @@ package specs;
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import specs.web.WebDriverConfig;
 
 import java.util.Map;
 
+@RequiredArgsConstructor
 public class ProjectConfiguration {
     private final WebDriverConfig webDriverConfig;
     private final AuthConfig authConfig;
 
-    public ProjectConfiguration(WebDriverConfig webDriverConfig, AuthConfig authConfig) {
-        this.webDriverConfig = webDriverConfig;
-        this.authConfig = authConfig;
-    }
-
     public void apiConfig() {
         RestAssured.baseURI = webDriverConfig.baseUrl();
         RestAssured.defaultParser = Parser.JSON;
+        RestAssured.basePath = "/api";
     }
 
     public void webConfig() {

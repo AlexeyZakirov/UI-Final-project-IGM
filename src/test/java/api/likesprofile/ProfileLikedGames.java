@@ -15,7 +15,7 @@ public class ProfileLikedGames {
     public List<Integer> getLikedGamesList() {
         Response response = given(requestWithToken)
                 .when()
-                .get("/api/profile/liked")
+                .get("/profile/liked")
                 .then()
                 .statusCode(200)
                 .extract().response();
@@ -38,7 +38,7 @@ public class ProfileLikedGames {
         RemoveGameRequestModel requestModel = new RemoveGameRequestModel(gameId);
         given(requestWithToken)
                 .body(requestModel)
-                .post("/api/profile/remove_from_favorites")
+                .post("/profile/remove_from_favorites")
                 .then().statusCode(200);
     }
 }

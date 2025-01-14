@@ -18,7 +18,7 @@ public class AuthorizationApi {
                 .body(login)
                 .contentType(ContentType.JSON)
                 .when()
-                .post("/api/login");
+                .post("/login");
     }
 
     private static String extractAccessTokenForApi(String cookieHeader) {
