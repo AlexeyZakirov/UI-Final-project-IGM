@@ -3,7 +3,6 @@ package api.authorization;
 import api.models.LoginRequestModel;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.aeonbits.owner.ConfigFactory;
 import specs.AuthConfig;
 import specs.ConfigReader;
 
