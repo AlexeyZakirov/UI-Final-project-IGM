@@ -5,13 +5,14 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.aeonbits.owner.ConfigFactory;
 import specs.AuthConfig;
+import specs.ConfigReader;
 
 import static io.restassured.RestAssured.given;
 
 public class AuthorizationApi {
 
     public static Response getAuthorizationResponse() {
-        AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
+        AuthConfig authConfig = ConfigReader.INSTANCE.readAuthConfig();
         LoginRequestModel login = new LoginRequestModel(authConfig.email(), authConfig.password());
 
         return given()
