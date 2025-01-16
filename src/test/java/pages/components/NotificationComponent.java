@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class NotificationComponent {
-    private final SelenideElement notificationContent = $(".Notification_notification__content__hG16b");
+    private final SelenideElement notificationContent = $("[class^=Notification_notification__content]");
 
     @Step("Проверить, что во всплывающем окне содержится текст {0}")
     public void checkNotificationText(String notifText) {

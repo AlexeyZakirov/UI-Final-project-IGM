@@ -11,13 +11,14 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 public class SearchComponent {
     private final SelenideElement searchInput = $("#search_query"),
-            resetSearchQueryButton = $(".SearchInput_search__wnFwa .SearchInput_search__clear-button__eFTHa"),
+            resetSearchQueryButton = $("[class^=SearchInput_search] [class^=SearchInput_search__clear-button]"),
             searchResultWindow = $(".Games_games__9H5H_"),
-            searchResultModalHeader = $("[class*='ResultModal_result-modal__header__cZ9vk']"),
-            searchPriceElement = $(".SearchGameCard_card__content__UsGkZ [class*=Price_price__price-text__MpdHL]"),
-            searchGameCard = $(".SearchGameCard_card__content__UsGkZ"),
-            emptyResultContainer = $(".EmptyStub_container__content__tcyDU"),
-            searchResultWindowHeader = $(".ResultModal_result-modal__header__cZ9vk");
+            searchResultModalHeader = $("[class*=result-modal__header]"),
+            searchPriceElement = $("[class*=SearchGameCard] [class*=price-text]"),
+            searchGameCard = $("[class^=SearchGameCard_card__content]"),
+            emptyResultContainer = $("[class^=EmptyStub_container__content]"),
+            searchResultWindowHeader = $("[class*=result-modal__header]");
+    private final String searchGameCardString = "[class^=SearchGameCard_card__content]";
 
     @Step("Ввести поисковый запрос {0}")
     public SearchComponent setValueOnSearchInput(String searchText) {
@@ -36,7 +37,7 @@ public class SearchComponent {
     @Step("Получить цену искомой игры {0} в поисковой выдаче")
     public String getPriceForSelectedGame(String gameName) {
         return searchResultWindow.$(byText(gameName)).closest(".SearchGameCard_card__content__UsGkZ").
-                $(".SearchGameCard_card__content__UsGkZ [class*=Price_price__price-text__MpdHL]").text();
+                $("[class^=SearchGameCard_card__content] [class*=Price_price__price-text]").text();
     }
 
     @Step("Перейти в карточку игры в поисковой выдаче")

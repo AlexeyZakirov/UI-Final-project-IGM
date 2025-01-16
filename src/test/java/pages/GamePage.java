@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GamePage {
-    private final SelenideElement mainGameName = $(".MainInfo_main-info__name__GI9N7"),
-            mainGamePrice = $(".MainInfo_main-info__price__IHF8u .Price_price__price-text__MpdHL");
+    private final SelenideElement mainGameName = $("[class*=main-info__name]"),
+            mainGamePrice = $("[class*=main-info__price] [class*=price-text]");
 
     @Step("Проверить, что название игры - {0}")
     public GamePage checkGameName(String gameName) {

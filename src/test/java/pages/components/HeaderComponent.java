@@ -16,7 +16,7 @@ public class HeaderComponent {
 
     private final SelenideElement catalogButton = $("#__HEADER_CONTENT__ a[href='/catalog']"),
             rechargeSteamButton = $("#__HEADER_CONTENT__ a[href='/steam']"),
-            logoElement = $("#__HEADER_CONTENT__ .Logo_logo__gLQw4"),
+            logoElement = $("#__HEADER_CONTENT__ [class^=Logo]"),
             likeButton = $("#__HEADER_CONTENT__ [aria-label='Желаемое']"),
             cartButton = $("#__HEADER_CONTENT__ [href='/cart']"),
             searchInput = searchComponent.getSearchInput(),

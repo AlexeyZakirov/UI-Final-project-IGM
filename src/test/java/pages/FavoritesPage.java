@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 public class FavoritesPage {
     private final CardContainerComponent cardContainerComponent = new CardContainerComponent();
-    private final SelenideElement favoritesButton = $(".Tabs_tabs__FUIFd").$(byText("Список желаемого"));
+    private final SelenideElement favoritesButton = $("[class^=Tabs_tabs]").$(byText("Список желаемого"));
 
     @Step("Получить значение первой добавленной игры в Желаемое")
     public String getNameFirstGameInFavorites() {

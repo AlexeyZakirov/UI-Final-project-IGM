@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 @Getter
 public enum CatalogCategories {
-    PRESALES($(".Filters_filters__hxo07").$(byText("Предзаказы")),
+    PRESALES($("[class^=Filters]").$(byText("Предзаказы")),
             "Категория: Предзаказы"),
-    SALES_LEADERS($(".Filters_filters__hxo07").$(byText("Лидеры продаж")),
+    SALES_LEADERS($("[class^=Filters]").$(byText("Лидеры продаж")),
             "Категория: Лидеры продаж");
 
     @Override

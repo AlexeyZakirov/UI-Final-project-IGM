@@ -28,13 +28,13 @@ public class CatalogPage {
 
     private final SelenideElement priceInputIn = $("input[placeholder='10']"),
             priceInputOut = $("input[placeholder='7599']"),
-            selectedFiltersArea = $(".SelectedFilters_selected-filters__mnSTQ"),
-            filterBlock = $(".Filters_filters__hxo07"),
-            searchElement = $(".Search_search__VHP8Z"),
+            selectedFiltersArea = $("[class^=SelectedFilters]"),
+            filterBlock = $("[class^=Filters]"),
+            searchElement = $("[class*=Search_search__input]"),
             likeButton = $("button[aria-label='Добавить в желаемое']");
 
     private final ElementsCollection
-            collectionButtonFilters = $$(".ButtonFilter_filter__text__vPSqY");
+            collectionButtonFilters = $$("[class*=ButtonFilter_filter__text]");
 
     private List<Integer> getCollectionGamesPrice() {
         cardContainerComponent.getCollectionGameCardPrices().get(0).shouldBe(visible);

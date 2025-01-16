@@ -14,11 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
     private final String pathToMainPage = "/";
-    private final SelenideElement activeIconTopGamesSlider = $("[class*='CardGameSimple_card-container_active__RdW_f'] .CardGameSimple_card__image__u1ij1"),
-            nextButtonTopGamesSlider = $(".TopGamesSlider_top-games-slider__buttons-container__87rxQ button[aria-label='Следующий слайд']"),
-            previousButtonTopGameSlider = $(".TopGamesSlider_top-games-slider__buttons-container__87rxQ button[aria-label='Предыдущий слайд']"),
-            mainGameLinkElementTopGamesSlider = $("a.Link_link__next-link__6FqGj");
-    private final ElementsCollection iconsCollectionTopGamesSlider = $$(".TopGamesSlider_top-games-slider__list__mWmCh .CardGameSimple_card-container__YT3SJ");
+    private final SelenideElement activeIconTopGamesSlider = $("[class*='card-container_active'] [class*=card__image]"),
+            nextButtonTopGamesSlider = $("[class*=top-games-slider__buttons] button[aria-label='Следующий слайд']"),
+            previousButtonTopGameSlider = $("[class*=top-games-slider__buttons] button[aria-label='Предыдущий слайд']"),
+            mainGameLinkElementTopGamesSlider = $("a[class*=Link_link]");
+    private final ElementsCollection iconsCollectionTopGamesSlider = $$("[class*=top-games-slider__list] [class*=card-container]");
 
     private List<SelenideElement> visibleElementsList() {
         return iconsCollectionTopGamesSlider.stream().
