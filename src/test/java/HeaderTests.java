@@ -1,18 +1,22 @@
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.MainPage;
 import pages.components.HeaderComponent;
 
-import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 @DisplayName("Тесты на компонент хэдер")
+@Owner("Alexey Zakirov")
 @Tag("header")
 public class HeaderTests extends TestBase {
     private final HeaderComponent header = new HeaderComponent();
     private final MainPage mainPage = new MainPage();
 
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Наличие всех элементов в хэдере")
     @Test
     public void headerShouldHaveAllElementsBeVisibleTest() {

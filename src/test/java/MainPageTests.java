@@ -1,3 +1,6 @@
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,10 +10,12 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Тесты на главную страницу")
+@Owner("Alexey Zakirov")
 @Tag("main")
 public class MainPageTests extends TestBase {
     private final MainPage mainPage = new MainPage();
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Переключение активной игры на следующую в слайдере TopGames посредством кнопки 'Следующий слайд'")
     @Test
     public void switchingActiveIconToNextByButtonTest() {
@@ -42,6 +47,7 @@ public class MainPageTests extends TestBase {
                 });
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Переключение активной игры на предыдущую в слайдере TopGames посредством кнопки 'Предыдущий слайд'")
     @Test
     public void switchingActiveIconToPreviousByButtonTest() {
@@ -74,6 +80,7 @@ public class MainPageTests extends TestBase {
                 });
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Переключение активной игры в слайдере TopGames посредством рандомного клика на видимую иконку")
     @Test
     public void switchingActiveIconByRandomClickTest() {

@@ -1,5 +1,8 @@
 import api.likesprofile.ProfileLikedGames;
 import helpers.WithLogin;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,6 +19,7 @@ import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Тесты на раздел 'Каталог'")
+@Owner("Alexey Zakirov")
 @Tag("catalog")
 public class CatalogTests extends TestBase {
     private final CatalogPage catalogPage = new CatalogPage();
@@ -24,6 +28,7 @@ public class CatalogTests extends TestBase {
     private final ProfileLikedGames profileLikedGames = new ProfileLikedGames();
     private final FavoritesPage favoritesPage = new FavoritesPage();
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Установка диапазона цены предлагаемых игр вручную")
     @CsvSource(value = {
             "10 , 7599",
@@ -37,6 +42,7 @@ public class CatalogTests extends TestBase {
                 .checkPriceIsInRange(lowerBound, upperBound);
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Установка диапазона цены предлагаемых игр через радио баттоны")
     @EnumSource(CatalogPriceFilterRadioButtons.class)
     @ParameterizedTest(name = "Радио баттон - {0}")
@@ -47,6 +53,7 @@ public class CatalogTests extends TestBase {
 
     }
 
+    @Severity(SeverityLevel.NORMAL)
     @DisplayName("Сброс всех установленных фильтров вручную")
     @Test
     public void removeAllFiltersManuallyTest() {
@@ -59,6 +66,7 @@ public class CatalogTests extends TestBase {
                 .removeAllFiltersManually();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Сброс всех установленных фильтров через кнопку")
     @Test
     public void removeAllFiltersByButtonTest() {
@@ -71,6 +79,7 @@ public class CatalogTests extends TestBase {
                 .removeAllFiltersByButton();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Сброс только выбранного фильтра")
     @Test
     public void removeSelectedFilterTest() {
@@ -83,6 +92,7 @@ public class CatalogTests extends TestBase {
                 .removeSelectedFilter("Скидки");
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Добавить игру в раздел 'Желаемое', будучи не авторизованным")
     @Test
     public void clickLikeGameWhenNotAuthorized() {
@@ -91,6 +101,7 @@ public class CatalogTests extends TestBase {
         notificationComponent.checkNotificationText(", чтобы добавлять игры в желаемое");
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Добавить игру в раздел 'Желаемое', будучи авторизованным")
     @Test
     @WithLogin

@@ -1,4 +1,7 @@
 import com.github.javafaker.Faker;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,6 +10,7 @@ import pages.MainPage;
 import pages.components.SearchComponent;
 
 @DisplayName("Тесты на поисковую строку")
+@Owner("Alexey Zakirov")
 @Tag("search")
 public class SearchTests extends TestBase {
     private final SearchComponent search = new SearchComponent();
@@ -16,6 +20,7 @@ public class SearchTests extends TestBase {
 
     private final String randomNegativeQueryText = "bgdf" + faker.letterify("?????") + "123";
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Поиск существующей игры с переходом на страницу игры")
     @Test
     public void searchExistGameTest() {
@@ -32,6 +37,7 @@ public class SearchTests extends TestBase {
                 .checkGamePrice(price);
     }
 
+    @Severity(SeverityLevel.NORMAL)
     @DisplayName("Поиск несуществующей игры")
     @Test
     public void searchNotExistGameTest() {
@@ -43,6 +49,7 @@ public class SearchTests extends TestBase {
                 .checkResultText(messageText);
     }
 
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Сброс поискового запроса")
     @Test
     public void resetSearchQueryTest() {
