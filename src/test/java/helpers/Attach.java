@@ -5,7 +5,6 @@ import io.qameta.allure.Attachment;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import specs.AuthConfig;
 import specs.web.WebDriverConfig;
 
 import java.net.MalformedURLException;
@@ -14,7 +13,6 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static java.lang.System.getProperty;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
